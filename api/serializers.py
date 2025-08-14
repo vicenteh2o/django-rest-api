@@ -5,7 +5,7 @@ from .models import Product, Order, OrderItem
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ('id', 'name', 'description', 'price', 'stock', )
+        fields = ('id', 'name', 'price', 'stock', )
 
     def validate_price(self, value):
         if value < 0:
@@ -37,3 +37,9 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ('order_id', 'user', 'created_at',
                   'status', 'items', 'total_price')
+
+
+class ProductInfoSerializer(serializers.Serializer):
+    products = ProductSerializer(many=True, read_only=True)
+    count = serializers.IntegerField()
+    max_price = serializers.FloatField()
