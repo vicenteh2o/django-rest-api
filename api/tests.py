@@ -1,6 +1,7 @@
 from django.test import TestCase
 from api.models import User, Order
 from django.urls import reverse
+from rest_framework import status
 # Create your tests here.
 
 
@@ -18,10 +19,10 @@ class UserOrderTestCase(TestCase):
         self.client.force_login(user)
         response = self.client.get(reverse('user-orders'))
 
-        assert response.status_code == 200
+        assert response.status_code == status.HTTP_200_OK
         orders = response.json()
         self.assertTrue(all(order['user'] == user.id for order in orders))
 
     def test_user_order_list_unauthenticated(self):
         response = self.client.get(reverse('user-orders'))
-        self.assertEqual(response.status_code, 403)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
