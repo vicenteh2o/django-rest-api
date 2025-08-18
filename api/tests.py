@@ -19,5 +19,9 @@ class UserOrderTestCase(TestCase):
         response = self.client.get(reverse('user-orders'))
 
         assert response.status_code == 200
-        data = response.json()
-        print(data)
+        orders = response.json()
+        self.assertTrue(all(order['user'] == user.id for order in orders))
+
+    def test_user_order_list_unauthenticated(self):
+        response = self.client.get(reverse('user-orders'))
+        self.assertEqual(response.status_code, 403)
