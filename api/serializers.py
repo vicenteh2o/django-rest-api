@@ -13,6 +13,12 @@ class ProductSerializer(serializers.ModelSerializer):
                 "Price must be a positive number.")
         return value
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.context.get('request') and self.context['request'].method in ('PUT', 'PATCH'):
+            for field in self.fields.values():
+                field.required = False
+
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.name', read_only=True)
