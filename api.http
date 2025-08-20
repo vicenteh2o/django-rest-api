@@ -6,7 +6,7 @@ GET http://127.0.0.1:8000/products/2 HTTP/1.1
 ###
 PUT http://127.0.0.1:8000/products/1 HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NjI1NDYzLCJpYXQiOjE3NTU2MjUxNjMsImp0aSI6ImY4NTJkZTFkM2ZjNjQ5NmU4Y2I4NWFmNWU1YjlhOGM0IiwidXNlcl9pZCI6IjEifQ.w7nIZyIODGajuZRMfCChn5gN1NdSgCR4ljDJM_KExlA
+Authorization: Bearer 
 
 {
     "name": "A Color Television"
@@ -19,7 +19,7 @@ DELETE http://127.0.0.1:8000/products/2 HTTP/1.1
 ###
 POST http://127.0.0.1:8000/products/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NjIxNTg4LCJpYXQiOjE3NTU2MjEyODgsImp0aSI6IjEyNjRkMzhmNjIxYzQwNjBhZTNiZGI2ZjUyMGM4M2YxIiwidXNlcl9pZCI6IjEifQ.VWu-P6HN7ATMBuaTikIvW1KHUlKgmMuGmfeKt9sFYzY
+Authorization: Bearer 
 
 {
     "name": "New Product775",
@@ -28,13 +28,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
     "stock": 1005
 }
 
-### //"7.vento@flauta.6" / "vicen"
+### 
 POST http://127.0.0.1:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "test"
+    "username": "",
+    "password": ""
 }
 
 ###
@@ -42,17 +42,17 @@ POST http://127.0.0.1:8000/api/token/refresh/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NTcwODUxNCwiaWF0IjoxNzU1NjIyMTE0LCJqdGkiOiJhZDFlMmZkMjU0ZmM0MWYyOTAwNWQzOWM1MjNkYTIyYyIsInVzZXJfaWQiOiIxIn0.OEpYJTirhkWvQlmcSLU7j5Y2710nHa761g8qEcYhn2o"
+    "refresh": ""
 }
 
 ###
 GET http://127.0.0.1:8000/orders/5495ec1e-01c9-4baf-b954-5145c511e282 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NzEyMTAzLCJpYXQiOjE3NTU3MTE4MDMsImp0aSI6ImQxMTk1ZGY1NmYwNjQwOTE5OTdiMGE3NzQ3NTE2ZWRhIiwidXNlcl9pZCI6IjEifQ.yAfETiLLItpWdr6B5t-1DhxHDVv0umRqO4mDQ5Kodo8
+Authorization: Bearer 
 
 ###
 POST http://127.0.0.1:8000/orders/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NzA5NTQwLCJpYXQiOjE3NTU3MDkyNDAsImp0aSI6IjZhZWFlYzdmZGQ2MjRmM2NhNzE2ZmIxNzJlZDAwYzI4IiwidXNlcl9pZCI6IjEifQ.kwZqAINQADOE7mgHxbR3GuNJd-VGisTcpGY8vBceK0I
+Authorization: Bearer 
 
 {
     "status": "Pending",
@@ -71,7 +71,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
 ###
 PUT http://127.0.0.1:8000/orders/5495ec1e-01c9-4baf-b954-5145c511e282/ HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NzE0MTE2LCJpYXQiOjE3NTU3MTM4MTYsImp0aSI6Ijc2OTNmMjc3ZDM2ZDRlY2M4ODcwZmZlYmNhYTg0ZmIyIiwidXNlcl9pZCI6IjEifQ.qMC4nM6kqd6sUC04FxxHh9Sg8EZB1aQkFZqPYKabvik
+Authorization: Bearer 
 
 {
     "status": "Pending",
@@ -86,3 +86,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
         }
     ]
 }
+
+###
+DELETE  http://127.0.0.1:8000/orders/5495ec1e-01c9-4baf-b954-5145c511e282/ HTTP/1.1
+Authorization: Bearer 
