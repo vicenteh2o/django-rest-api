@@ -1,6 +1,5 @@
 from django.db.models import Max
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.decorators import action
 from rest_framework import filters, generics, viewsets
 from rest_framework.pagination import (LimitOffsetPagination,
                                        PageNumberPagination)
@@ -11,7 +10,7 @@ from rest_framework.views import APIView
 from api.filters import InStockFilterBackend, OrderFilter, ProductFilter
 from api.models import Order, OrderItem, Product
 from api.serializers import (OrderSerializer, ProductInfoSerializer,
-                             ProductSerializer)
+                             ProductSerializer, OrderCreateSerializer)
 
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
@@ -54,6 +53,14 @@ class OrderViewSet(viewsets.ModelViewSet):
     pagination_class = None
     filterset_class = OrderFilter
     filter_backends = [DjangoFilterBackend]
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+    def get_serializer_class(self):
+        if self.action == 'create':
+            return OrderCreateSerializer
+        return super().get_serializer_class()
 
     def get_queryset(self):
         qs = super().get_queryset()
