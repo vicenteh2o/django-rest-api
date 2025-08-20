@@ -61,12 +61,6 @@ class OrderViewSet(viewsets.ModelViewSet):
             qs = qs.filter(user=self.request.user)
         return qs
 
-    @action(detail=False, methods=['get'], url_path='user-orders', permission_classes=[IsAuthenticated])
-    def user_orders(self, request):
-        orders = self.get_queryset().filter(user=request.user)
-        serializer = self.get_serializer(orders, many=True)
-        return Response(serializer.data)
-
 # class OrderListAPIView(generics.ListAPIView):
 #     queryset = Order.objects.prefetch_related('items__product')
 #     serializer_class = OrderSerializer
