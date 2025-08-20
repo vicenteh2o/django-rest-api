@@ -28,13 +28,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiY
     "stock": 1005
 }
 
-### //"7.vento@flauta.6"
+### //"7.vento@flauta.6" / "vicen"
 POST http://127.0.0.1:8000/api/token/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "username": "admin",
-    "password": "test"
+    "username": "vicen",
+    "password": "7.vento@flauta.6"
 }
 
 ###
@@ -46,6 +46,5 @@ Content-Type: application/json
 }
 
 ###
-GET http://127.0.0.1:8000/user-orders/ HTTP/1.1
-Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NjIxNTg4LCJpYXQiOjE3NTU2MjEyODgsImp0aSI6IjEyNjRkMzhmNjIxYzQwNjBhZTNiZGI2ZjUyMGM4M2YxIiwidXNlcl9pZCI6IjEifQ.VWu-P6HN7ATMBuaTikIvW1KHUlKgmMuGmfeKt9sFYzY
+GET http://127.0.0.1:8000/orders/ HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NzAwMTYzLCJpYXQiOjE3NTU2OTk4NjMsImp0aSI6IjliOGY4YmY2MDBlNTRjMjM4ODYxNmI3NmZiMGE5NWQxIiwidXNlcl9pZCI6IjIifQ.nfMcRJgExGK_YcqF_DRlpEcSk9a1l_MGS_BlRIkXyb0
