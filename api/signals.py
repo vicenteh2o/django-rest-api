@@ -9,4 +9,5 @@ def invalidate_product_cache(sender, instance, **kwargs):
     "Invalidate product list caches after request like create, update etc"
     print("Clearing product cache")
 
-    # TODO
+    # Clear product list caches
+    cache.delete_pattern('*product_list*')
