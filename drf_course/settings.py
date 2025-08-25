@@ -161,3 +161,9 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 
 }
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'
+
+CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379/1'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
