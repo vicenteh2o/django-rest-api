@@ -20,3 +20,9 @@ class ProductAPITestCase(APITestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data['name'], self.product.name)
+
+    def test_unauthorized_update_product(self):
+        data = {'name': 'Updated Product'}
+        response = self.client.put(self.url, data)
+        self.assertEqual(response.status_code, 401)
+        
