@@ -1,6 +1,7 @@
 from django.urls import reverse
 from api.models import User, Product
 from rest_framework.test import APITestCase
+from rest_framework import status
 # Create your tests here.
 
 
@@ -18,11 +19,10 @@ class ProductAPITestCase(APITestCase):
 
     def test_get_product(self):
         response = self.client.get(self.url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['name'], self.product.name)
 
     def test_unauthorized_update_product(self):
         data = {'name': 'Updated Product'}
         response = self.client.put(self.url, data)
-        self.assertEqual(response.status_code, 401)
-        
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
